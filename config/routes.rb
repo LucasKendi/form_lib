@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :user
+  root 'user#index'
+  resources :users
 end

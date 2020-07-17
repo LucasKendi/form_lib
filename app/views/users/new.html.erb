@@ -1,0 +1,20 @@
+<h3>Novo usuário </h3>
+  <%= form_with model: @user, local: true do |f| %>
+    <p>
+      <%= f.text_field :name, placeholder: 'Nome' %>
+    </p>
+    <p>
+      <%= f.text_field :cpf_cnpj, placeholder: 'CPF/CNPJ' %>
+    </p>
+    <p>
+      <%= f.text_field :email, placeholder: 'Email' %>
+    </p>
+    <p>
+      <%= f.text_field :phone_prefix, placeholder: 'DDD' %>
+      <%= f.text_field :phone, placeholder: 'telefone'%>
+    </p>
+    <p>
+      <%= f.number_field :balance, placeholder: 'Saldo' %>
+    </p>
+    <%= f.submit 'Criar' %>
+  <% end %>
