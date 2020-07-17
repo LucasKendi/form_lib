@@ -1,7 +1,7 @@
-export function isMinLengthValid(el, value) {
-  return  $(el).val().length >= value
+export function isMinLengthValid(value, minLength) {
+  return  value.length >= minLength;
 }
 
-export function isMinValueValid(el, value) {
-  return  parseInt($(el).val()) >= value
+export function isMinValueValid(value, minValue) {
+  return  parseInt(value) >= minValue;
 }
