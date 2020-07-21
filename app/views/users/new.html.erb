@@ -1,5 +1,5 @@
 <h3>Novo usuário </h3>
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @user, id: :myForm, local: true do |f| %>
     <p>
       <%= f.text_field :name, placeholder: 'Nome' %>
     </p>
