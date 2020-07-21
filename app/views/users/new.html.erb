@@ -11,12 +11,10 @@
     </p>
     <p>
       <%= f.text_field :phone_prefix, placeholder: 'DDD' %>
-    </p>
-    <p>
       <%= f.text_field :phone, placeholder: 'telefone'%>
     </p>
     <p>
-      <%= f.number_field :balance, placeholder: 'Saldo' %>
+      <%= f.text_field :balance, placeholder: 'Saldo' %>
     </p>
-    <%= f.submit 'Criar' %>
+    <%= f.submit 'Criar', id: :submit_form %>
   <% end %>
