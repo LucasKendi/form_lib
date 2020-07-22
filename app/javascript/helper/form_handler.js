@@ -1,8 +1,14 @@
+import { isValidCNPJ, isValidCPF} from 'helper/custom_validations'
+
 export class FormHandler {
   static handle(el) {
-    $(el).validate();
+    jQuery.validator.addMethod("validCPF", function(value, element) {
+      return this.optional(element) || isValidCPF(value);
+    }, "CPF inválido");
 
-    let inputs = el.find(':input')
+    jQuery.validator.addMethod("validCNPJ", function(value, element) {
+      return this.optional(element) || isValidCNPJ(value);
+    }, "CNPJ inválido");
 
     const rulesObj = {
       "user[name]": {
@@ -14,6 +20,7 @@ export class FormHandler {
       },
       "user[cpf_cnpj]": {
         required: true,
+        validCPF: true
       },
       "user[email]": {
         required: true,
@@ -32,12 +39,14 @@ export class FormHandler {
       }
     }
 
+    $(el).validate();
+
+    let inputs = el.find(':input')
+
     inputs.each((index, input) => {
-      if((input.type !== 'hidden') && (input.type !== 'submit')) {
-        let input_rules = rulesObj[input.name]
-        if(input_rules) {
-          $(input).rules('add', input_rules)
-        }
+      let input_rules = rulesObj[input.name]
+      if(input_rules) {
+        $(input).rules('add', input_rules)
       }
     })
   }
