@@ -14,9 +14,6 @@ export class FormHandler {
       "user[name]": {
         minlength: 4,
         required: true,
-        messages: {
-          required: "Esse campo é obrigatório"
-        }
       },
       "user[cpf_cnpj]": {
         required: true,
