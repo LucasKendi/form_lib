@@ -2,13 +2,9 @@ import { isValidCNPJ, isValidCPF} from 'helper/custom_validations'
 
 export class FormHandler {
   static handle(el) {
-    jQuery.validator.addMethod("validCPF", function(value, element) {
-      return this.optional(element) || isValidCPF(value);
-    }, "CPF inválido");
-
-    jQuery.validator.addMethod("validCNPJ", function(value, element) {
-      return this.optional(element) || isValidCNPJ(value);
-    }, "CNPJ inválido");
+    jQuery.validator.addMethod("validCPFCNPJ", function(value, element) {
+      return this.optional(element) || (isValidCPF(value) || isValidCNPJ(value));
+    }, "CPF/CNPJ inválido");
 
     const rulesObj = {
       "user[name]": {
@@ -17,7 +13,7 @@ export class FormHandler {
       },
       "user[cpf_cnpj]": {
         required: true,
-        validCPF: true
+        validCPFCNPJ: true
       },
       "user[email]": {
         required: true,
