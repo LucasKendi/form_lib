@@ -1,12 +1,6 @@
+import {SPMaskBehavior, spOptions } from 'helper/SPMask'
+
 $(document).on('turbolinks:load', () => {
-    var SPMaskBehavior = function (val) {
-    return val.replace(/\D/g, '').length === 9 ? '00000-0000' : '0000-00009';
-  },
-  spOptions = {
-    onKeyPress: function(val, e, field, options) {
-      field.mask(SPMaskBehavior.apply({}, arguments), options);
-    }
-  };
 
   $('#user_phone_prefix').mask('(00)');
   $('#user_phone').mask(SPMaskBehavior, spOptions);
