@@ -32,15 +32,6 @@ export class FormHandler {
       }
     }
 
-    $(el).validate();
-
-    let inputs = el.find(':input')
-
-    inputs.each((index, input) => {
-      let input_rules = rulesObj[input.name]
-      if(input_rules) {
-        $(input).rules('add', input_rules)
-      }
-    })
+    $(el).validate({rules: rulesObj});
   }
 }
